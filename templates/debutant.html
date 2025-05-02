@@ -1,11 +1,35 @@
 {% extends "base.html" %}
 {% block title %}Débutant - Apprendre les Échecs{% endblock %}
+
 {% block content %}
-<h2>Niveau Débutant</h2>
-<ul>
-  <li>Apprenez à déplacer chaque pièce</li>
-  <li>Connaissez les règles : échec, mat, roque</li>
-  <li>Ne perdez pas de pièces inutilement</li>
-  <li>Contrôlez le centre de l’échiquier</li>
-</ul>
+<section class="beginner-section">
+  <h2>Bienvenue au Niveau Débutant</h2>
+  <p>Apprenez les bases essentielles pour bien débuter aux échecs.</p>
+</section>
+
+<section class="beginner-tips">
+  <div class="tip">
+    <h3>1. Déplacement des pièces</h3>
+    <p>Chaque pièce a un mouvement spécifique. Apprenez-les pour éviter les erreurs.</p>
+    <img src="{{ url_for('static', filename='img/mouvements-pieces.png') }}" alt="Déplacement des pièces" class="tip-img">
+  </div>
+
+  <div class="tip">
+    <h3>2. Règles de base</h3>
+    <p>Comprenez les notions fondamentales : l’échec, le mat, le roque et la promotion du pion.</p>
+    <img src="{{ url_for('static', filename='img/regles-de-base.jpg') }}" alt="Règles du jeu d'échecs" class="tip-img">
+  </div>
+
+  <div class="tip">
+    <h3>3. Évitez les pertes inutiles</h3>
+    <p>Ne sacrifiez pas vos pièces sans raison. Protégez-les ou échangez à valeur égale.</p>
+    <img src="{{ url_for('static', filename='img/perte-piece.png') }}" alt="Ne perdez pas vos pièces" class="tip-img">
+  </div>
+
+  <div class="tip">
+    <h3>4. Contrôle du centre</h3>
+    <p>Placez vos pions et vos pièces vers les cases centrales pour un meilleur contrôle du jeu.</p>
+    <img src="{{ url_for('static', filename='img/controle-centre.jpg') }}" alt="Contrôle du centre de l'échiquier" class="tip-img">
+  </div>
+</section>
 {% endblock %}
