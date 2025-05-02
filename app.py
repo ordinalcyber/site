@@ -4,7 +4,19 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html", title="Mon Site SEO", description="Un site Flask déployé sur Render et référencé sur Google.")
+    return render_template("index.html")
+
+@app.route("/debutant")
+def debutant():
+    return render_template("debutant.html")
+
+@app.route("/intermediaire")
+def intermediaire():
+    return render_template("intermediaire.html")
+
+@app.route("/expert")
+def expert():
+    return render_template("expert.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
