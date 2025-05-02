@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Accueil - Apprendre les Échecs{% endblock %}
+
 {% block content %}
 <section class="intro">
   <h2>Améliorez votre jeu d'échecs</h2>
@@ -24,16 +25,26 @@
   </div>
 </section>
 
-<section class="chess-demo">
-  <h2>Visualisation du plateau</h2>
-  <div class="chess-board">
-    {% for row in range(8, 0, -1) %}
-      <div class="board-row">
-        {% for col in 'abcdefgh' %}
-          <div class="square {{ loop.index0 % 2 == row % 2 and 'light' or 'dark' }}"></div>
-        {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
+<section class="chess-interactive">
+  <h2>Plateau interactif</h2>
+  <div id="chessboard" style="width: 400px; margin: auto;"></div>
+  <button onclick="board.start()">Réinitialiser</button>
 </section>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <!-- CSS de chessboard.js -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css') }}">
+  <!-- JS de chessboard.js -->
+  <script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js') }}"></script>
+
+  <script>
+    var board = Chessboard('chessboard', {
+      draggable: true,
+      dropOffBoard: 'snapback',
+      position: 'start',
+      pieceTheme: "{{ url_for('static', filename='img/chesspieces/wikipedia/') }}{piece}.png"
+    });
+  </script>
 {% endblock %}
