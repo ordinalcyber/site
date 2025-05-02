@@ -25,28 +25,5 @@
   </div>
 </section>
 
-<section class="chess-interactive">
-  <h2>Plateau interactif</h2>
-  <div id="chessboard" style="width: 400px; margin: auto;"></div>
-  <button onclick="board.start()">Réinitialiser</button>
-</section>
 {% endblock %}
 
-{% block scripts %}
-  {{ super() }}
-  <!-- CSS de chessboard.js -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css') }}">
-  <!-- JS de chessboard.js -->
-  <script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js') }}"></script>
-  {{ super() }}
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var board = Chessboard('chessboard', {
-      draggable: true,
-      dropOffBoard: 'snapback',
-      position: 'start',
-      pieceTheme: '/static/img/chesspieces/wikipedia/{piece}.png'
-    });
-  });
-</script>
-{% endblock %}
