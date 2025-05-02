@@ -22,7 +22,12 @@
   var RUN_ASSERTS = false
   var START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
   var START_POSITION = fenToObj(START_FEN)
-
+  var board = Chessboard('chessboard', {
+  draggable: true,
+  dropOffBoard: 'snapback',
+  position: 'start',
+  pieceTheme: '/static/img/chesspieces/wikipedia/{piece}.png'
+});
   // default animation speeds
   var DEFAULT_APPEAR_SPEED = 200
   var DEFAULT_MOVE_SPEED = 200
