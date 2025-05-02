@@ -5,7 +5,9 @@
   <title>{% block title %}Apprendre les Échecs{% endblock %}</title>
   <meta name="description" content="Un site pour apprendre à jouer aux échecs.">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard-1.0.0.min.css') }}">
 </head>
+<script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js') }}"></script>
 <body>
   <header>
     <h1>Bienvenue sur Apprendre les Échecs</h1>
