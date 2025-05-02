@@ -1,79 +1,145 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/dist/chessboard.min.css" />
-  <style>
-    body {
-      background-color: #f8f9fa;
-      padding-top: 3rem;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .section {
-      margin: 2rem auto;
-      max-width: 800px;
-    }
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre à jouer aux échecs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .chess-board {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            gap: 2px;
+            margin: 20px auto;
+            width: 420px;
+            height: 420px;
+        }
+        .chess-board div {
+            width: 50px;
+            height: 50px;
+        }
+        .black {
+            background-color: #769656;
+        }
+        .white {
+            background-color: #eeeed2;
+        }
+        .level-section {
+            margin-top: 30px;
+        }
+        .level-section h2 {
+            color: #333;
+        }
+        .level-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .level-section li {
+            margin-bottom: 10px;
+        }
+        .image-example {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px auto;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Bienvenue sur le site éducatif pour apprendre à jouer aux échecs!</h1>
+    </header>
+    <div class="content">
+        <h2>Les bases des échecs</h2>
+        <p>Les échecs sont un jeu de stratégie à deux joueurs, joué sur un plateau carré de 8x8 cases. Chaque joueur dispose de 16 pièces: 1 roi, 1 dame, 2 tours, 2 fous, 2 cavaliers et 8 pions. L'objectif est de mettre le roi adverse en échec et mat.</p>
+        
+        <h3>Comment jouer</h3>
+        <p>Les pièces se déplacent de manière spécifique :</p>
+        <ul>
+            <li><strong>Le roi</strong> se déplace d'une case dans toutes les directions.</li>
+            <li><strong>La dame</strong> se déplace horizontalement, verticalement et diagonalement sur n'importe quelle distance.</li>
+            <li><strong>La tour</strong> se déplace verticalement et horizontalement.</li>
+            <li><strong>Le fou</strong> se déplace en diagonale.</li>
+            <li><strong>Le cavalier</strong> se déplace en "L" : deux cases dans une direction, puis une case perpendiculairement.</li>
+            <li><strong>Le pion</strong> se déplace d'une case en avant, mais capture en diagonale. Au premier déplacement, il peut avancer de deux cases.</li>
+        </ul>
+        
+        <h3>Le plateau d'échecs</h3>
+        <div class="chess-board">
+            {% for row in range(8) %}
+                {% for col in range(8) %}
+                    <div class="{% if (row + col) % 2 == 0 %}white{% else %}black{% endif %}"></div>
+                {% endfor %}
+            {% endfor %}
+        </div>
 
-  <div class="container">
-    <h1>🎓 Apprendre les Échecs</h1>
-    <p class="text-center">Maîtrisez les règles, les stratégies et pratiquez directement ici !</p>
+        <!-- Niveau Débutant -->
+        <div class="level-section" id="beginner">
+            <h2>Débutant</h2>
+            <p>En tant que débutant, il est essentiel de comprendre les bases du jeu avant de passer à des stratégies avancées. Voici quelques conseils pour bien démarrer :</p>
+            <ul>
+                <li><strong>Contrôlez le centre :</strong> Essayez de déplacer vos pions et pièces pour prendre contrôle des cases centrales (d4, e4, d5, e5).</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Chess_Opening_e4_e5.svg" alt="Contrôler le centre" class="image-example">
+                
+                <li><strong>Développez vos pièces :</strong> Ne laissez pas vos pièces sur leurs cases de départ. Déplacez vos cavaliers et fous tôt dans la partie.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Chess_Knight_Move.svg" alt="Développer les pièces" class="image-example">
+                
+                <li><strong>Protégez votre roi :</strong> Le roque est une méthode rapide et sûre pour protéger votre roi et connecter vos tours.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Chess_King_and_Rook_castling.svg" alt="Roque" class="image-example">
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>🧠 Règles de base</h2>
-      <ul>
-        <li>Chaque joueur commence avec 16 pièces.</li>
-        <li>Les pions se déplacent vers l’avant, mais capturent en diagonale.</li>
-        <li>La dame est la pièce la plus puissante.</li>
-        <li>Le but est de mettre le roi adverse en échec et mat.</li>
-      </ul>
+        <!-- Niveau Intermédiaire -->
+        <div class="level-section" id="intermediate">
+            <h2>Intermédiaire</h2>
+            <p>À ce niveau, vous commencez à comprendre les principes de base du jeu, et il est temps de se concentrer sur des stratégies plus complexes :</p>
+            <ul>
+                <li><strong>Ouvrir avec les pions :</strong> Apprenez les différentes ouvertures, comme l'Ouverture Espagnole ou l'Ouverture Italienne, pour avoir un meilleur développement.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Chess_Openings_Italian_Opening.svg/220px-Chess_Openings_Italian_Opening.svg.png" alt="Ouverture Italienne" class="image-example">
+                
+                <li><strong>Contrôlez la colonne ouverte :</strong> Les tours sont plus puissantes lorsqu'elles sont placées sur des colonnes ouvertes. Essayez de les placer tôt dans la partie.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Chess_Opening_Rook_Development.svg/120px-Chess_Opening_Rook_Development.svg.png" alt="Développement des tours" class="image-example">
+                
+                <li><strong>Visez les faiblesses adverses :</strong> Recherchez les cases non protégées et exploitez les faiblesses dans la position de votre adversaire.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Chess_Weak_Square_Concept_Example.svg" alt="Exploitation des faiblesses" class="image-example">
+            </ul>
+            <h3>Exemple d'Ouverture :</h3>
+            <p>L'Ouverture Espagnole (1. e4 e5 2. Nf3 Nc6 3. Bb5) est l'une des plus populaires. Elle permet un bon développement des pièces et un contrôle du centre.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_Opening_Spanish_Game.svg" alt="Ouverture Espagnole" class="image-example">
+        </div>
+
+        <!-- Niveau Expert -->
+        <div class="level-section" id="expert">
+            <h2>Expert</h2>
+            <p>Les joueurs de niveau expert connaissent déjà les bases et cherchent à affiner leur jeu avec des stratégies plus sophistiquées. À ce niveau, il est important d'être attentif aux petites nuances de la position :</p>
+            <ul>
+                <li><strong>Les sacrifices tactiques :</strong> Utilisez des sacrifices pour ouvrir la position, créer des attaques décisives, ou forcer l'adversaire à faire des erreurs.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Chess_Sacrifice_Example.svg" alt="Sacrifice tactique" class="image-example">
+                
+                <li><strong>Le jeu positionnel :</strong> Apprenez à gérer les pions et les structures de pions pour contrôler des cases clés et empêcher votre adversaire de trouver de bons espaces pour ses pièces.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Chess_Closed_Position.svg" alt="Jeu positionnel" class="image-example">
+                
+                <li><strong>Les finales :</strong> La compréhension des finales est cruciale. Apprenez à jouer les finales de tours, de pions et même de rois isolés.</li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Chess_Endgame_Examples_king_vs_king_and_pawn.svg" alt="Finale de roi et pion" class="image-example">
+            </ul>
+            <h3>Exemple de Stratégie :</h3>
+            <p>Le sacrifice de la pièce peut être utilisé pour ouvrir la position de l’adversaire, souvent dans les parties d'attaque. Par exemple, un sacrifice de fou pour ouvrir le roi adverse peut créer des opportunités pour un échec et mat rapide.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Chess_Sacrifice_Example_Mate_In_Three.svg" alt="Sacrifice pour échec et mat" class="image-example">
+        </div>
     </div>
-
-    <div class="section">
-      <h2>♟️ Stratégies simples</h2>
-      <ol>
-        <li>Contrôle du centre avec pions et cavaliers.</li>
-        <li>Développement rapide des pièces.</li>
-        <li>Roquez tôt pour protéger votre roi.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>🎯 Plateau interactif</h2>
-      <div id="board" style="width: 400px; margin: 0 auto;"></div>
-      <button class="btn btn-secondary mt-3 d-block mx-auto" onclick="board.start()">Réinitialiser</button>
-    </div>
-
-    <footer>
-      <p>© 2025 - Site éducatif sur les échecs. Créé avec Flask.</p>
-    </footer>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/dist/chessboard.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
-  <script>
-    const game = new Chess();
-    const board = Chessboard('board', {
-      draggable: true,
-      position: 'start',
-      onDrop: function (source, target) {
-        const move = game.move({ from: source, to: target, promotion: 'q' });
-        if (move === null) return 'snapback';
-      }
-    });
-  </script>
 </body>
 </html>
