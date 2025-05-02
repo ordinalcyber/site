@@ -1,106 +1,11 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Apprendre les échecs</title>
-  <meta name="description" content="Un site pour apprendre à jouer aux échecs, de débutant à avancé.">
-  <meta name="robots" content="index, follow">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #222;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      margin-top: 0;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #222;
-      color: #fff;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-
-    .chess-board {
-      margin-top: 10px;
-      font-style: italic;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Bienvenue sur Apprendre les Échecs</h1>
-    <p>Le site pour maîtriser l’art du jeu d’échecs</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>À propos du site</h2>
-      <p>Ce site a été créé pour vous aider à découvrir et maîtriser le jeu d’échecs. Que vous soyez un débutant complet ou que vous souhaitiez améliorer vos compétences, vous êtes au bon endroit.</p>
-    </section>
-
-    <section>
-      <h2>Pourquoi apprendre les échecs ?</h2>
-      <ul>
-        <li>Développer sa concentration et sa mémoire</li>
-        <li>Améliorer sa capacité à résoudre des problèmes</li>
-        <li>Stimuler la logique et la stratégie</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Ce que vous allez apprendre</h2>
-      <ul>
-        <li>Les règles de base : déplacement des pièces, échec et mat</li>
-        <li>Les ouvertures classiques</li>
-        <li>Les tactiques et combinaisons</li>
-        <li>Les fins de parties</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Exemple de plateau</h2>
-      <div class="chess-board">[Plateau d'échecs à venir ici]</div>
-      <p>Nous intégrerons bientôt un échiquier interactif !</p>
-    </section>
-
-    <section>
-      <h2>Déploiement</h2>
-      <p>Ce site est développé avec Flask et déployé sur Render.</p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 Apprendre les Échecs. Tous droits réservés.
-  </footer>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Accueil - Apprendre les Échecs{% endblock %}
+{% block content %}
+<h2>Choisissez votre niveau</h2>
+<p>Ce site vous guide selon votre niveau :</p>
+<ul>
+  <li><a href="{{ url_for('debutant') }}">Débutant</a> : Règles et bases du jeu</li>
+  <li><a href="{{ url_for('intermediaire') }}">Intermédiaire</a> : Tactiques et ouvertures</li>
+  <li><a href="{{ url_for('expert') }}">Expert</a> : Analyse et stratégies avancées</li>
+</ul>
+{% endblock %}
