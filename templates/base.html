@@ -5,25 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ description }}">
   <meta name="robots" content="index, follow">
-  <title>{{ title }} | Mon Site Flask</title>
+  <title>{{ title }} | how to play chess </title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='dipesh-shrestha-Diyc9vVaSqM-unsplash.jpg') }}">
+  <link rel="shortcut icon" type="image/png" href="site/dipesh-shrestha-Diyc9vVaSqM-unsplash.jpg"/>
 </head>
 <body>
   <header>
     <nav>
       <a href="/">Accueil</a> | <a href="/contact">Contact</a>
     </nav>
-    <p>test</p>
   </header>
+  <h5><p>Les bases des echec</p>
+  <p> Le jeu d’échecs est né en Inde il y a environ 1500 ans, sous le nom de chaturanga, un jeu qui représentait les quatre divisions de l’armée. Il s’est ensuite diffusé en Perse, devenant le shatranj, puis en Europe à partir du VIIIe siècle.
 
+Au fil du temps, les règles ont évolué. Au XVe siècle, des modifications importantes ont donné au jeu sa forme moderne, notamment l’introduction de la puissante dame.
+
+Les échecs sont devenus un sport international au XIXe siècle avec le premier championnat du monde en 1886. Aujourd’hui, grâce à Internet et à l’intelligence artificielle, les échecs connaissent un véritable essor dans le monde entier.</p>
   <main>
     {% block content %}
     {% endblock %}
   </main>
 
   <footer>
-    <p>&copy; 2025 Mon Site Flask. Tous droits réservés.</p>
+    <p>contact : </p>
   </footer>
 </body>
 </html>
