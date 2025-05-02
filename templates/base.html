@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Apprendre les Échecs{% endblock %}</title>
+  <meta name="description" content="Un site pour apprendre à jouer aux échecs.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Bienvenue sur Apprendre les Échecs</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Accueil</a> |
+      <a href="{{ url_for('debutant') }}">Débutant</a> |
+      <a href="{{ url_for('intermediaire') }}">Intermédiaire</a> |
+      <a href="{{ url_for('expert') }}">Expert</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    &copy; 2025 Apprendre les Échecs. Tous droits réservés.
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
