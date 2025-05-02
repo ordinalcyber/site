@@ -40,13 +40,13 @@
   <script src="{{ url_for('static', filename='js/chessboard-1.0.0.min.js') }}"></script>
   {{ super() }}
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var board = Chessboard('chessboard', {
-        draggable: true,
-        dropOffBoard: 'snapback',
-        position: 'start',
-        pieceTheme: "{{ url_for('static', filename='img/chesspieces/wikipedia/') }}{piece}.png"
-      });
+  document.addEventListener('DOMContentLoaded', function () {
+    var board = Chessboard('chessboard', {
+      draggable: true,
+      dropOffBoard: 'snapback',
+      position: 'start',
+      pieceTheme: '/static/img/chesspieces/wikipedia/{piece}.png'
     });
-  </script>
+  });
+</script>
 {% endblock %}
