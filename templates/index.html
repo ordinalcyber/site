@@ -1,11 +1,39 @@
 {% extends "base.html" %}
 {% block title %}Accueil - Apprendre les Échecs{% endblock %}
 {% block content %}
-<h2>Choisissez votre niveau</h2>
-<p>Ce site vous guide selon votre niveau :</p>
-<ul>
-  <li><a href="{{ url_for('debutant') }}">Débutant</a> : Règles et bases du jeu</li>
-  <li><a href="{{ url_for('intermediaire') }}">Intermédiaire</a> : Tactiques et ouvertures</li>
-  <li><a href="{{ url_for('expert') }}">Expert</a> : Analyse et stratégies avancées</li>
-</ul>
+<section class="intro">
+  <h2>Améliorez votre jeu d'échecs</h2>
+  <p>Choisissez votre niveau et suivez des conseils adaptés pour progresser efficacement.</p>
+</section>
+
+<section class="level-selection">
+  <div class="level-card">
+    <h3>Débutant</h3>
+    <p>Apprenez les règles et les mouvements des pièces.</p>
+    <a class="level-btn" href="{{ url_for('debutant') }}">Commencer</a>
+  </div>
+  <div class="level-card">
+    <h3>Intermédiaire</h3>
+    <p>Développez vos tactiques et vos ouvertures.</p>
+    <a class="level-btn" href="{{ url_for('intermediaire') }}">Explorer</a>
+  </div>
+  <div class="level-card">
+    <h3>Expert</h3>
+    <p>Analysez des parties avancées et perfectionnez votre stratégie.</p>
+    <a class="level-btn" href="{{ url_for('expert') }}">Maîtriser</a>
+  </div>
+</section>
+
+<section class="chess-demo">
+  <h2>Visualisation du plateau</h2>
+  <div class="chess-board">
+    {% for row in range(8, 0, -1) %}
+      <div class="board-row">
+        {% for col in 'abcdefgh' %}
+          <div class="square {{ loop.index0 % 2 == row % 2 and 'light' or 'dark' }}"></div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}
