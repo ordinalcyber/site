@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Ouvertures Essentielles aux Échecs{% endblock %}
+
+{% block content %}
+<main>
+  <section class="openings-section">
+    <h2 style="text-align:center; color:#003366;">Les Meilleures Ouvertures aux Échecs</h2>
+    <p style="text-align:center; max-width: 800px; margin: 0 auto;">
+      Voici une sélection des meilleures ouvertures, utilisées par les joueurs de club comme les grands maîtres. 
+      Apprenez leurs idées principales pour démarrer vos parties avec confiance.
+    </p>
+
+    <h3 style="margin-top:3rem; color:#003366;">🔷 Pour les Blancs</h3>
+    <div class="level-selection">
+      <div class="level-card">
+        <h3>1. Ouverture Espagnole (Ruy Lopez)</h3>
+        <p>1.e4 e5 2.Nf3 Nc6 3.Bb5</p>
+        <p>Contrôle du centre, pression sur le cavalier c6, mène souvent à des jeux positionnels ou tactiques.</p>
+      </div>
+      <div class="level-card">
+        <h3>2. Ouverture Italienne</h3>
+        <p>1.e4 e5 2.Nf3 Nc6 3.Bc4</p>
+        <p>Viser le point faible f7, permet un jeu rapide et tactique dans les premières phases.</p>
+      </div>
+      <div class="level-card">
+        <h3>3. Gambit du Roi</h3>
+        <p>1.e4 e5 2.f4</p>
+        <p>Ouverture très agressive, offre un pion pour une attaque immédiate. Risquée mais spectaculaire.</p>
+      </div>
+      <div class="level-card">
+        <h3>4. Attaque Grand Prix</h3>
+        <p>1.e4 c5 2.Nc3 et 3.f4</p>
+        <p>Contre la Sicilienne, offre un plan d'attaque avec les pions sur l’aile-roi.</p>
+      </div>
+      <div class="level-card">
+        <h3>5. Gambit Dame (accepté/refusé)</h3>
+        <p>1.d4 d5 2.c4</p>
+        <p>Ouverture classique de contrôle du centre. Peut être joué de manière positionnelle ou agressive.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3rem; color:#003366;">⚫ Pour les Noirs</h3>
+    <div class="level-selection">
+      <div class="level-card">
+        <h3>1. Défense Sicilienne</h3>
+        <p>1.e4 c5</p>
+        <p>Répond agressivement à e4, contre-attaque sur les ailes. Très populaire à tous les niveaux.</p>
+      </div>
+      <div class="level-card">
+        <h3>2. Défense Française</h3>
+        <p>1.e4 e6</p>
+        <p>Structure solide, jeu stratégique, avec le pion d5. Conduit souvent à des contre-attaques centrales.</p>
+      </div>
+      <div class="level-card">
+        <h3>3. Défense Caro-Kann</h3>
+        <p>1.e4 c6</p>
+        <p>Défense solide et positionnelle. Prépare d5 avec une bonne structure de pions.</p>
+      </div>
+      <div class="level-card">
+        <h3>4. Défense Nimzo-Indienne</h3>
+        <p>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</p>
+        <p>Attaque les cavaliers rapidement. Idéale contre 1.d4.</p>
+      </div>
+      <div class="level-card">
+        <h3>5. Défense Moderne</h3>
+        <p>1.e4 g6 ou 1.d4 g6</p>
+        <p>Hypermoderne, laisse le centre aux blancs pour mieux le contrer. Très flexible.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <h3>📘 Ressources complémentaires</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://lichess.org/opening-explorer" class="level-btn">Explorateur d'ouvertures Lichess</a></li>
+        <li><a href="https://www.chess.com/openings" class="level-btn">Répertoire d'ouvertures Chess.com</a></li>
+        <li><a href="https://www.youtube.com/@JohnBartholomewChess" class="level-btn">Vidéos de John Bartholomew</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% endblock %}
