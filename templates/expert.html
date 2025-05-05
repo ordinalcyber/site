@@ -1,11 +1,69 @@
 {% extends "base.html" %}
-{% block title %}Expert - Apprendre les Échecs{% endblock %}
+{% block title %}Niveau Expert - Conseils d’Élite aux Échecs{% endblock %}
+
 {% block content %}
-<h2>Niveau Expert</h2>
-<ul>
-  <li>Préparez des variantes d’ouverture complexes</li>
-  <li>Maîtrisez les finales techniques</li>
-  <li>Analysez les parties de maîtres</li>
-  <li>Participez à des tournois</li>
-</ul>
+<main>
+  <section class="expert-section">
+    <h2 style="text-align:center; color:#003366;">Niveau Expert</h2>
+    <p style="text-align:center; max-width: 800px; margin: 0 auto;">
+      Vous maîtrisez déjà les bases. Il est temps de viser l'excellence et de perfectionner tous les aspects de votre jeu.
+    </p>
+
+    <div class="level-selection">
+      <div class="level-card">
+        <h3>Préparation d’Ouvertures</h3>
+        <ul style="text-align:left;">
+          <li>Construisez un répertoire selon votre style</li>
+          <li>Étudiez les nouveautés dans les bases de données</li>
+          <li>Maîtrisez les lignes critiques contre vos adversaires</li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Finales Techniques</h3>
+        <ul style="text-align:left;">
+          <li>Finales de tours, pions, pièces mineures</li>
+          <li>Concepts : opposition, triangulation, zugzwang</li>
+          <li>Référence : <em>Dvoretsky’s Endgame Manual</em></li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Analyse de Parties</h3>
+        <ul style="text-align:left;">
+          <li>Révisez vos parties avec et sans moteur</li>
+          <li>Étudiez les grands maîtres classiques et modernes</li>
+          <li>Suivez les tournois d’élite en direct</li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Compétition & Tournois</h3>
+        <ul style="text-align:left;">
+          <li>Jouez en cadence classique régulièrement</li>
+          <li>Préparez-vous mentalement et physiquement</li>
+          <li>Analysez chaque partie post-tournoi</li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Développement Mental</h3>
+        <ul style="text-align:left;">
+          <li>Travail quotidien sur la visualisation et le calcul</li>
+          <li>Routine d’entraînement avec objectifs clairs</li>
+          <li>Exercices de mémoire échiquéenne</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <h3>Ressources Utiles</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://lichess.org" class="level-btn">Lichess.org</a></li>
+        <li><a href="https://www.chessable.com" class="level-btn">Chessable</a></li>
+        <li><a href="https://www.chess.com/lessons" class="level-btn">Chess.com Lessons</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 {% endblock %}
