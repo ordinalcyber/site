@@ -1,38 +1,51 @@
 {% extends "base.html" %}
-{% block title %}Débutant - Apprendre les Échecs{% endblock %}
+{% block title %}Niveau Débutant - Apprendre les Échecs{% endblock %}
 
 {% block content %}
-<section class="beginner-section">
-  <h2>Bienvenue au Niveau Débutant</h2>
-  <p>Apprenez les bases essentielles pour bien débuter aux échecs.</p>
-</section>
+<main>
+  <section class="beginner-section">
+    <h2 style="text-align:center; color:#003366;">Bienvenue au Niveau Débutant</h2>
+    <p style="text-align:center; max-width: 800px; margin: 0 auto;">
+      Faites vos premiers pas dans le monde des échecs. Voici les fondamentaux pour bien débuter.
+    </p>
 
-<section class="beginner-tips">
-  <div class="tip">
-    <h3>1. Déplacement des pièces</h3>
-    <p>Chaque pièce a un mouvement spécifique. Apprenez-les pour éviter les erreurs.</p>
-    <img src="{{ url_for('static', filename='img/mouvement2.png') }}" alt="Déplacement des pièces" class="tip-img">
-    <img src="{{ url_for('static', filename='img/mouvement_1.png') }}" alt="Déplacement des pièces" class="tip-img">
-  </div>
+    <div class="level-selection">
+      <div class="level-card">
+        <h3>Déplacement des Pièces</h3>
+        <p>Chaque pièce se déplace d'une manière spécifique. Connaître ces mouvements est essentiel pour éviter les fautes.</p>
+        <img src="{{ url_for('static', filename='img/mouvement2.png') }}" alt="Déplacement des pièces" class="tip-img" style="width:100%; margin-top:1rem;">
+        <img src="{{ url_for('static', filename='img/mouvement_1.png') }}" alt="Déplacement des pièces" class="tip-img" style="width:100%; margin-top:1rem;">
+      </div>
 
-  <div class="tip">
-    <h3>2. Règles de base</h3>
-    <p>Comprenez les notions fondamentales : l’échec, le mat, le roque et la promotion du pion.</p>
-    <img src="{{ url_for('static', filename='img/mat.png') }}" alt="Règles du jeu d'échecs" class="tip-img">
-    <img src="{{ url_for('static', filename='img/roque.png') }}" alt="Règles du jeu d'échecs" class="tip-img">
-    <img src="{{ url_for('static', filename='img/promotion.png') }}" alt="Règles du jeu d'échecs" class="tip-img">
-  </div>
+      <div class="level-card">
+        <h3>Règles de Base</h3>
+        <p>Apprenez les notions clés : échec, échec et mat, roque, promotion du pion.</p>
+        <img src="{{ url_for('static', filename='img/mat.png') }}" alt="Échec et mat" class="tip-img" style="width:100%; margin-top:1rem;">
+        <img src="{{ url_for('static', filename='img/roque.png') }}" alt="Roque" class="tip-img" style="width:100%; margin-top:1rem;">
+        <img src="{{ url_for('static', filename='img/promotion.png') }}" alt="Promotion" class="tip-img" style="width:100%; margin-top:1rem;">
+      </div>
 
-  <div class="tip">
-    <h3>3. Évitez les pertes inutiles</h3>
-    <p>Ne sacrifiez pas vos pièces sans raison. Protégez-les ou échangez à valeur égale.</p>
-    <img src="{{ url_for('static', filename='img/valeur_pieces.png') }}" alt="Ne perdez pas vos pièces" class="tip-img">
-  </div>
+      <div class="level-card">
+        <h3>Protéger vos Pièces</h3>
+        <p>Ne sacrifiez pas vos pièces sans compensation. Apprenez à reconnaître les échanges équitables.</p>
+        <img src="{{ url_for('static', filename='img/valeur_pieces.png') }}" alt="Valeur des pièces" class="tip-img" style="width:100%; margin-top:1rem;">
+      </div>
 
-  <div class="tip">
-    <h3>4. Contrôle du centre</h3>
-    <p>Placez vos pions et vos pièces vers les cases centrales pour un meilleur contrôle du jeu.</p>
-    <img src="{{ url_for('static', filename='img/centre.png') }}" alt="Contrôle du centre de l'échiquier" class="tip-img">
-  </div>
-</section>
+      <div class="level-card">
+        <h3>Contrôle du Centre</h3>
+        <p>Placez vos pions et vos pièces vers le centre de l’échiquier pour un meilleur contrôle de la partie.</p>
+        <img src="{{ url_for('static', filename='img/centre.png') }}" alt="Contrôle du centre" class="tip-img" style="width:100%; margin-top:1rem;">
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <h3>Ressources pour Bien Commencer</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://lichess.org/learn" class="level-btn">Cours interactifs Lichess</a></li>
+        <li><a href="https://www.chess.com/lessons" class="level-btn">Leçons débutants Chess.com</a></li>
+        <li><a href="https://www.youtube.com/@thechessnerd" class="level-btn">Vidéos YouTube (ChessNerd)</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 {% endblock %}
