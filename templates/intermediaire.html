@@ -1,11 +1,60 @@
 {% extends "base.html" %}
-{% block title %}Intermédiaire - Apprendre les Échecs{% endblock %}
+{% block title %}Niveau Intermédiaire - Progresser aux Échecs{% endblock %}
+
 {% block content %}
-<h2>Niveau Intermédiaire</h2>
-<ul>
-  <li>Maîtrisez les ouvertures classiques</li>
-  <li>Utilisez les tactiques : fourchette, clouage, enfilade</li>
-  <li>Développez des plans à moyen terme</li>
-  <li>Analysez vos parties avec un moteur</li>
-</ul>
+<main>
+  <section class="intermediate-section">
+    <h2 style="text-align:center; color:#003366;">Niveau Intermédiaire</h2>
+    <p style="text-align:center; max-width: 800px; margin: 0 auto;">
+      Vous avez dépassé les bases : il est temps de structurer votre jeu, de reconnaître les schémas tactiques, et de construire vos plans.
+    </p>
+
+    <div class="level-selection">
+      <div class="level-card">
+        <h3>Ouvertures Classiques</h3>
+        <ul style="text-align:left;">
+          <li>Apprenez les principes : contrôle du centre, développement rapide</li>
+          <li>Étudiez des ouvertures comme l’Espagnole, l’Italienne, la Défense Sicilienne</li>
+          <li>Comprenez les idées derrière chaque coup</li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Tactiques Essentielles</h3>
+        <ul style="text-align:left;">
+          <li>Fourchette, clouage, enfilade, attaque double</li>
+          <li>Exercices réguliers pour automatiser la reconnaissance</li>
+          <li>Utilisez des plateformes comme Lichess pour vous entraîner</li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Plans et Stratégie</h3>
+        <ul style="text-align:left;">
+          <li>Évaluez les positions : structure de pions, espace, activité des pièces</li>
+          <li>Construisez des plans à moyen terme selon la position</li>
+          <li>Étudiez les jeux de position comme ceux de Karpov ou Rubinstein</li>
+        </ul>
+      </div>
+
+      <div class="level-card">
+        <h3>Analyse de Parties</h3>
+        <ul style="text-align:left;">
+          <li>Analysez vos parties après chaque match, surtout vos erreurs</li>
+          <li>Utilisez un moteur (Stockfish) pour vérifier vos idées</li>
+          <li>Notez vos points forts/faibles dans un carnet d'entraînement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <h3>Ressources Recommandées</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://lichess.org/practice" class="level-btn">Entraînement Lichess</a></li>
+        <li><a href="https://www.chess.com/lessons" class="level-btn">Leçons Chess.com</a></li>
+        <li><a href="https://www.youtube.com/@hangingpawns" class="level-btn">Chaîne Hanging Pawns</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 {% endblock %}
