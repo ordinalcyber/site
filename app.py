@@ -17,6 +17,10 @@ def intermediaire():
 @app.route("/expert")
 def expert():
     return render_template("expert.html")
+@app.route("/ouvertures")
+def ouvertures():
+    return render_template("ouvertures.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
