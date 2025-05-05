@@ -21,7 +21,7 @@ def expert():
 def ouvertures():
     return render_template("ouvertures.html")
 @app.route("/coaching")
-def debutant():
+def coaching():
     return render_template("coaching.html")
 
 if __name__ == "__main__":
