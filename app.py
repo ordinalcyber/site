@@ -25,9 +25,10 @@ def ouvertures():
 @app.route("/coaching")
 def coaching():
     return render_template("coaching.html")
-@app.route("/echiquier")
+@app.route('/echquier')
 def echquier():
-    return render_template("echiquier.html")
+    # code pour afficher l'échiquier
+    return render_template('echquier.html')
 async def keep_alive():
     requests.get(URL)
     await asyncio.sleep(60)
