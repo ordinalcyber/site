@@ -27,7 +27,7 @@ def coaching():
     return render_template("coaching.html")
 async def keep_alive():
     requests.get(URL)
-        await asyncio.sleep(60)
+    await asyncio.sleep(60)
 if __name__ == "__main__":
     app.run(debug=True)
     keep_alive()
