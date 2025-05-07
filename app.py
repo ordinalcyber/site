@@ -25,6 +25,9 @@ def ouvertures():
 @app.route("/coaching")
 def coaching():
     return render_template("coaching.html")
+@app.route("/echiquier")
+def echquier():
+    return render_template("echiquier.html")
 async def keep_alive():
     requests.get(URL)
     await asyncio.sleep(60)
