@@ -1,9 +1,32 @@
 from flask import Flask, render_template
 import requests
 import asyncio
+import random
 import time
 app = Flask(__name__)
-
+questions = [
+    {
+        "image": "static/screenshot/1.png",  # Le nom du fichier image
+        "correct_answer": "rb1",  # La réponse correcte à cette image
+    },
+    {
+        "image": "static/screenshot/2.png",
+        "correct_answer": "qg2",
+    },
+    {
+        "image": "static/screenshot/3.png",
+        "correct_answer": "nxe4",
+    },
+    {
+        "image": "static/screenshot/4.png",
+        "correct_answer": "rc7",
+    },
+    {
+        "image": "static/screenshot/5.png",
+        "correct_answer": "rh3",
+    },
+    # Ajoute d'autres questions si besoin
+]
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -25,10 +48,41 @@ def ouvertures():
 @app.route("/coaching")
 def coaching():
     return render_template("coaching.html")
-@app.route('/echiquier')
+@app.route('/echiquier', methods=["GET", "POST"])
 def echiquier():
-    # code pour afficher l'échiquier
-    return render_template('echiquier.html')
+    question = random.choice(questions)
+
+    if request.method == "POST":
+        user_answer = request.form["answer"].strip().lower()
+
+        if user_answer == question["correct_answer"].lower():
+            random.shuffle(questions)
+            message = "Bravo ! Votre réponse est correcte."
+            next_question = random.choice(questions)
+            return render_template(
+                "echiquier.html",
+                message=message,
+                image_path=next_question["image"],
+                answer="",
+                question=next_question
+            )
+        else:
+            message = "Dommage, essayez encore !"
+            return render_template(
+                "echiquier.html",
+                message=message,
+                image_path=question["image"],
+                answer="",
+                question=question
+            )
+
+    return render_template(
+        "echiquier.html",
+        message="Quel est le meilleur coup ?",
+        image_path=question["image"],
+        answer="",
+        question=question
+    )
 async def keep_alive():
     requests.get(URL)
     await asyncio.sleep(60)
