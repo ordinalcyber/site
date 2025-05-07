@@ -1,144 +1,29 @@
-{% extends "base.html" %}
-{% block title %}Niveau Expert - Conseils d’Élite aux Échecs{% endblock %}
-
-{% block content %}
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu d'Échecs Interactif</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Jeu d'Échecs Interactif</h1>
-    <div id="chessboard" class="chessboard"></div>
+    <div class="container">
+        <h1>Jeu d'Échecs Interactif</h1>
 
-    <div id="problemArea">
-        <h2 id="problemDescription">Description du Problème</h2>
-        <form id="solutionForm">
-            <input type="text" id="solutionInput" placeholder="Entrez votre solution">
-            <button type="submit">Vérifier</button>
+        <!-- Affichage du screenshot -->
+        <div class="screenshot">
+            <img src="{{ url_for('static', filename=image_path) }}" alt="Échiquier">
+        </div>
+
+        <!-- Message d'information -->
+        <p>{{ message }}</p>
+
+        <!-- Formulaire pour entrer la réponse -->
+        <form method="POST">
+            <label for="answer">Entrez votre réponse (par exemple : e2-e4) :</label>
+            <input type="text" id="answer" name="answer" value="{{ answer }}" required>
+            <button type="submit">Soumettre</button>
         </form>
-        <p id="result"></p>
     </div>
-
-    <script>
-        // Initialiser l'échiquier
-        const chessboardElement = document.getElementById('chessboard');
-        const pieceSymbols = {
-            'R': '♖', 'N': '♘', 'B': '♗', 'Q': '♕', 'K': '♔', 'P': '♙',  // Blancs
-            'r': '♖', 'n': '♘', 'b': '♗', 'q': '♕', 'k': '♔', 'p': '♙'   // Noirs
-        };
-
-        const initialBoard = [
-            'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r',
-            'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
-            '', '', '', '', '', '', '', '',
-            '', '', '', '', '', '', '', '',
-            '', '', '', '', '', '', '', '',
-            'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P',
-            'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'
-        ];
-
-        // Fonction pour créer l'échiquier
-        function createBoard() {
-            chessboardElement.innerHTML = '';
-            for (let i = 0; i < 64; i++) {
-                const square = document.createElement('div');
-                const row = Math.floor(i / 8);
-                const col = i % 8;
-
-                // Ajouter la classe pour les cases noires et blanches
-                if ((row + col) % 2 === 0) {
-                    square.classList.add('square');
-                } else {
-                    square.classList.add('square', 'black');
-                }
-
-                // Ajouter les pièces sur l'échiquier
-                const piece = initialBoard[i];
-                if (piece) {
-                    const pieceElement = document.createElement('span');
-                    pieceElement.classList.add('piece');
-                    pieceElement.textContent = pieceSymbols[piece];
-                    square.appendChild(pieceElement);
-                }
-
-                // Ajouter l'interactivité pour déplacer les pièces
-                square.addEventListener('click', () => movePiece(i));
-
-                chessboardElement.appendChild(square);
-            }
-        }
-
-        // Variable pour le mouvement des pièces
-        let selectedSquare = null;
-
-        // Fonction pour déplacer les pièces
-        function movePiece(index) {
-            const square = document.getElementsByClassName('square')[index];
-            if (selectedSquare === null) {
-                selectedSquare = index;
-                square.style.border = '3px solid red'; // Mettre en surbrillance la case sélectionnée
-            } else {
-                const selectedPiece = document.getElementsByClassName('square')[selectedSquare].querySelector('.piece');
-                if (selectedPiece) {
-                    const targetSquare = document.getElementsByClassName('square')[index];
-                    targetSquare.appendChild(selectedPiece); // Déplacer la pièce
-                }
-                document.getElementsByClassName('square')[selectedSquare].style.border = ''; // Retirer la surbrillance
-                selectedSquare = null;
-            }
-        }
-
-        // Liste des problèmes à résoudre
-        const problems = [
-            {
-                id: 1,
-                description: "Quel est le meilleur coup pour les blancs ici ?",
-                solution: "e4"
-            },
-            {
-                id: 2,
-                description: "Quel est le coup gagnant pour les blancs ici ?",
-                solution: "Qh5#"
-            }
-        ];
-
-        // Affichage du problème actuel
-        let currentProblemIndex = 0;
-
-        function displayProblem(problemId) {
-            const problem = problems[problemId];
-            document.getElementById('problemDescription').innerText = problem.description;
-        }
-
-        // Vérification de la solution de l'utilisateur
-        function checkSolution(userSolution, problemId) {
-            const problem = problems[problemId];
-            return userSolution.trim().toLowerCase() === problem.solution.toLowerCase();
-        }
-
-        // Soumettre la solution
-        document.getElementById('solutionForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const userSolution = document.getElementById('solutionInput').value;
-            const result = checkSolution(userSolution, currentProblemIndex);
-            document.getElementById('result').innerText = result ? "Correct!" : "Incorrect, essayez encore!";
-
-            if (result) {
-                currentProblemIndex++;
-                if (currentProblemIndex < problems.length) {
-                    displayProblem(currentProblemIndex);
-                } else {
-                    document.getElementById('result').innerText = "Félicitations, vous avez résolu tous les problèmes!";
-                }
-            }
-        });
-
-        // Initialisation de l'échiquier et du problème
-        createBoard();
-        displayProblem(currentProblemIndex);
-    </script>
 </body>
-{% endblock %}
+</html>
