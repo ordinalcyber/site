@@ -6,23 +6,23 @@ import time
 app = Flask(__name__)
 questions = [
     {
-        "image": "static/screenshot/1.png",  # Le nom du fichier image
+        "image": "screenshot/1.png",  # Le nom du fichier image
         "correct_answer": "rb1",  # La réponse correcte à cette image
     },
     {
-        "image": "static/screenshot/2.png",
+        "image": "screenshot/2.png",
         "correct_answer": "qg2",
     },
     {
-        "image": "static/screenshot/3.png",
+        "image": "screenshot/3.png",
         "correct_answer": "nxe4",
     },
     {
-        "image": "static/screenshot/4.png",
+        "image": "screenshot/4.png",
         "correct_answer": "rc7",
     },
     {
-        "image": "static/screenshot/5.png",
+        "image": "screenshot/5.png",
         "correct_answer": "rh3",
     },
     # Ajoute d'autres questions si besoin
