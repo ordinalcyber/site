@@ -1,11 +1,13 @@
 from flask import Flask, render_template
-
+import requests
+import asyncio
+import time
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     return render_template("index.html")
-
+URL = "https://apprendre-les-echecs.onrender.com"
 @app.route("/debutant")
 def debutant():
     return render_template("debutant.html")
@@ -23,6 +25,9 @@ def ouvertures():
 @app.route("/coaching")
 def coaching():
     return render_template("coaching.html")
-
+async def keep_alive():
+    requests.get(URL)
+        await asyncio.sleep(60)
 if __name__ == "__main__":
     app.run(debug=True)
+    keep_alive()
